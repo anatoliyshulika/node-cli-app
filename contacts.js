@@ -8,7 +8,9 @@ async function listContacts() {
   try {
     const data = await fs.readFile(contactsPath, "utf-8");
     return JSON.parse(data);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
 async function getContactById(contactId) {
@@ -20,7 +22,7 @@ async function getContactById(contactId) {
     );
     return contact;
   } catch (error) {
-    return error.message;
+    console.log(error.message);
   }
 }
 
@@ -38,7 +40,7 @@ async function removeContact(contactId) {
     );
     return contactsAfterRemov;
   } catch (error) {
-    return error.message;
+    console.log(error.message);
   }
 }
 
@@ -60,7 +62,7 @@ async function addContact(name, email, phone) {
     );
     return contacts;
   } catch (error) {
-    return error.message;
+    console.log(error.message);
   }
 }
 
